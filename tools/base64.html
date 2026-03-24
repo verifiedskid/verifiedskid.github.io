@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Base64 Tool | VerifiedSkid</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080">
+
+<center>
+    <font size="7"><b>VerifiedSkid Base64 Tool</b></font>
+    <br>
+    <font size="3">Encode or decode text in Base64</font>
+</center>
+
+<hr>
+
+<marquee>
+    oh my god its base 64 woah
+</marquee>
+
+<hr>
+
+<table width="100%" border="1" cellpadding="10">
+<tr>
+
+<td width="25%" valign="top">
+    <b>Navigation</b>
+    <ul>
+        <li><a href="/index.html">[Home]</a></li>
+        <li><a href="/tools/index.html">[Tools]</a></li>
+        <li><a href="/random.html">[Random]</a></li>
+    </ul>
+</td>
+
+<td width="50%" valign="top">
+    <h2>Base64 Encoder / Decoder</h2>
+
+    <p>Enter text below and choose Encode or Decode:</p>
+
+    <textarea id="inputText" rows="6" cols="50"></textarea>
+    <br><br>
+
+    <input type="button" value="Encode" onclick="encodeText()">
+    <input type="button" value="Decode" onclick="decodeText()">
+    <br><br>
+
+    <textarea id="outputText" rows="6" cols="50" readonly></textarea>
+
+    <script>
+        function encodeText() {
+            const input = document.getElementById('inputText').value;
+            try {
+                document.getElementById('outputText').value = btoa(input);
+            } catch(e) {
+                document.getElementById('outputText').value = 'Error encoding text';
+            }
+        }
+
+        function decodeText() {
+            const input = document.getElementById('inputText').value;
+            try {
+                document.getElementById('outputText').value = atob(input);
+            } catch(e) {
+                document.getElementById('outputText').value = 'Error decoding text';
+            }
+        }
+    </script>
+</td>
+
+<td width="25%" valign="top">
+    <b>Message Of The Day</b>
+    <p id="motd">loading...</p>
+</td>
+
+</tr>
+</table>
+
+<hr>
+
+<center>
+    <font size="2">
+        © VerifiedSkid<br>
+        Best viewed in any browser
+    </font>
+</center>
+
+<script>
+fetch('https://raw.githubusercontent.com/verifiedskid/api/main/data.json')
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById('motd').textContent = data.message;
+    })
+    .catch(() => {
+        document.getElementById('motd').textContent = 'could not load message';
+    });
+</script>
+
+</body>
+</html>

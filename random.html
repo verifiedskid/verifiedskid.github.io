@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random | VerifiedSkid</title>
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080">
+
+<center>
+    <br><br><br>
+
+    <font size="7"><b>VerifiedSkid</b></font>
+    <br><br>
+
+    <font size="5"><b>Random Page</b></font>
+    <br><br>
+
+    <font size="4">
+        Redirecting you to a random page...
+    </font>
+
+    <br><br><br>
+
+    <a href="index.html">[or go back to main page]</a>
+</center>
+
+<script>
+const pages = [
+    "/index.html",
+    "/tools/index.html",
+    "/tools/base64.html",
+    "/tools/password.html",
+    "/tools/color-picker.html"
+];
+
+const randomPage = pages[Math.floor(Math.random() * pages.length)];
+
+setTimeout(() => {
+    window.location.href = randomPage;
+}, 1000);
+</script>
+
+</body>
+</html>
