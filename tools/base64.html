@@ -86,16 +86,19 @@
 </center>
 
 <script>
-    fetch('https://raw.githubusercontent.com/verifiedskid/api/main/data.json')
+    const url = 'https://raw.githubusercontent.com/verifiedskid/api/main/data.json?t=' + Date.now();
+    
+    fetch(url)
         .then(response => response.json())
         .then(data => {
             document.getElementById('version').textContent = data.version;
-    
             document.getElementById('motd').textContent = data.message;
+            document.getElementById('updates').textContent = data.updates || 'No updates available';
         })
         .catch(() => {
             document.getElementById('version').textContent = 'unknown';
             document.getElementById('motd').textContent = 'could not load message';
+            document.getElementById('updates').textContent = 'could not load updates';
         });
 </script>
 
